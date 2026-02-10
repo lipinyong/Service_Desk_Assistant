@@ -1,0 +1,35 @@
+# 环境与密钥（勿提交）
+.env
+*.env.local
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+.venv/
+venv/
+ENV/
+
+# 构建与打包
+dist/
+build/
+*.egg-info/
+*.egg
+
+# 日志与数据
+logs/
+*.log
+data/*.db
+data/*.sqlite
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db

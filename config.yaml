@@ -1,0 +1,35 @@
+# v1.3 Agent + Skill 框架配置（默认与引用）
+
+modules:
+  enabled:
+    - auth
+    - markdown
+    - aiagent
+
+# AI 配置：具体模型定义在 ai.yaml，此处仅指定引用与默认使用的 provider
+ai:
+  config_file: ai.yaml
+  provider: deepseek
+
+logging:
+  level: INFO
+  file: logs/app.log
+
+mcp:
+  enabled: true
+  services_path: mcp
+
+chroma:
+  base_url: http://127.0.0.1:8000
+  api_key: "${CHROMA_API_KEY}"
+
+knowledge_base:
+  enabled: true
+  collection_name: ops_docs
+  chroma_base_url: "${CHROMA_BASE_URL:-http://127.0.0.1:8000}"
+  n_results: 5
+  auto_rag: false
+
+auth:
+  enabled: false
+  allow_paths: ["/health", "/docs", "/redoc", "/openapi.json", "/api/chat"]

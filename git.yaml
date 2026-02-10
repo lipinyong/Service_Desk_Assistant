@@ -1,0 +1,42 @@
+# GitLab 访问配置（token 从 .env 读取，勿提交真实 token）
+
+gitlab:
+  server: ${GITLAB_SERVER}
+  port: ${GITLAB_PORT:-80}
+
+repositories:
+  lubanlou:
+    project_id: 164
+    project_name: lubanlou
+    description: 产品git
+    token: ${GIT_TOKEN_LUBANLOU}
+
+  production_document:
+    project_id: 193
+    project_name: production_document
+    description: 值班git
+    token: ${GIT_TOKEN_PRODUCTION_DOCUMENT}
+
+  project_document:
+    project_id: 224
+    project_name: project_document
+    description: 项目git
+    token: ${GIT_TOKEN_PROJECT_DOCUMENT}
+
+  service_issues:
+    project_id: 228
+    project_name: service_issues
+    description: 服务git
+    token: ${GIT_TOKEN_SERVICE_ISSUES}
+
+  c_engineer:
+    project_id: 239
+    project_name: c_engineer
+    description: 总工办git
+    token: ${GIT_TOKEN_C_ENGINEER}
+
+  gvsunscript:
+    project_id: 222
+    project_name: gvsunscript
+    description: 脚本git
+    token: ${GIT_TOKEN_GVSUNSCRIPT}

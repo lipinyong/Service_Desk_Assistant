@@ -1,0 +1,24 @@
+version: '3.8'
+services:
+  ai-cli:
+    build: .
+    image: fastapi-ai-cli:v1.3
+    container_name: fastapi-ai-cli-v13
+    ports:
+      - "8000:8000"
+    environment:
+      - HOST=0.0.0.0
+      - PORT=8000
+      - CONFIG_PATH=/app/config.yaml
+      - DEEPSEEK_API_KEY=${DEEPSEEK_API_KEY:-}
+      - SILICONFLOW_API_KEY=${SILICONFLOW_API_KEY:-}
+      - CHROMA_BASE_URL=${CHROMA_BASE_URL:-http://127.0.0.1:8000}
+    volumes:
+      - ./config.yaml:/app/config.yaml:ro
+      - ./data:/app/data
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3

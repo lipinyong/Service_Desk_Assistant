@@ -1,0 +1,15 @@
+fastapi
+uvicorn[standard]
+python-dotenv
+pyyaml
+httpx
+openai
+aiofiles
+markdown
+python-jose[cryptography]
+passlib[bcrypt]
+requests
+paramiko
+mysql-connector-python
+chromadb
+pyinstaller

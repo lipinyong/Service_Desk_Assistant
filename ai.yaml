@@ -1,0 +1,33 @@
+# 多模型 AI 配置（供 config.yaml 引用，便于扩展多个 aiagent 实例）
+
+# 默认使用的 provider 键名（可被 config.yaml 中 ai.provider 覆盖）
+default: deepseek
+
+# 全局默认参数（各 provider 可单独覆盖）
+temperature: 0.7
+max_tokens: 8192
+max_iterations: 100
+
+# 可对接的模型列表，键名为 provider 标识
+providers:
+  deepseek:
+    base_url: https://api.deepseek.com
+    model: deepseek-chat
+    api_key: "${DEEPSEEK_API_KEY}"
+    temperature: 0.7
+    max_tokens: 8192
+
+  siliconflow:
+    base_url: https://api.siliconflow.cn/v1
+    model: deepseek-ai/DeepSeek-V3.2
+    api_key: "${SILICONFLOW_API_KEY}"
+    temperature: 0.7
+    max_tokens: 8192
+
+  # 可继续追加其他模型，例如：
+  # openai:
+  #   base_url: https://api.openai.com/v1
+  #   model: gpt-4
+  #   api_key: "${OPENAI_API_KEY}"
+  #   temperature: 0.7
+  #   max_tokens: 8192
